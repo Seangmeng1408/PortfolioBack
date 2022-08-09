@@ -23,6 +23,4 @@ app.use("/api/user",UserRout)
 app.use("/api/Card",CardRout)
 
 Port=3000
-app.listen(Port,()=>{
-    console.log(`It run on http://localhost:${Port}`)
-});
+app.listen(process.env.PORT||Port)
