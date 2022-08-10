@@ -70,7 +70,7 @@ rout.post("/login",async (req,res)=>{
     
 
         const token=jwt.sign({_id:user._id},process.env.TOKEN)
-        res.header("auth-token",token).send(token);
+        res.header("auth-token",token).send({"Token":token});
 
 })
 
