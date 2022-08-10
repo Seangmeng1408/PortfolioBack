@@ -7,6 +7,12 @@ require("dotenv").config();
 const {validation,loginValidation} =require("../Utiliti/Auth-Validation")
 const {auth,Admin}=require("../Utiliti/authentication")
 
+rout.get("",async (req,res)=>{
+    const id=req.params.id;
+    const user= await User.find({}).select("_id").select("UserName").select("Email").select("Admin")
+    if(!user) return res.status(400).send({"message":"user not found"});
+    res.send(user)
+})
 
 rout.get("/:id",async (req,res)=>{
     const id=req.params.id;
@@ -16,6 +22,7 @@ rout.get("/:id",async (req,res)=>{
             "Admin":user.Admin,
             })
 })
+
 
 
 rout.post("/register",Admin,async (req,res)=>{
