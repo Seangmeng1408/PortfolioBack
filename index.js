@@ -4,9 +4,10 @@ const DotEnv=require("dotenv");
 const mongoose=require("mongoose")
 const UserRout=require("./rout/User");
 const CardRout=require("./rout/Card");
+var cors = require('cors')
 const bodyParser=require("body-parser")
 DotEnv.config()
-
+app.use(cors())
 app.use(bodyParser.json({
     limit: '50mb'
 }));

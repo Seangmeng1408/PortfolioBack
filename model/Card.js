@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 
 
 const Card=mongoose.Schema({
-    Titile:{
+    Title:{
         type:String,
         min:1,
         max:255
@@ -13,7 +13,12 @@ const Card=mongoose.Schema({
         min:1
     },
     Cover:String,
-    Cover_Type:String,
+    Cover_Type:{
+        type:String,
+        default:"image/jpg"
+    },
+    LiveUrl:String,
+    SourceUrl:String,
     Owner:String,
     CreateDate:{
         type:Date,

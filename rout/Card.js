@@ -21,14 +21,16 @@ rout.get("/:id",async (req,res)=>{
 
 
 rout.post("/",auth,async (req,res)=>{
-    // const {error}=Validation(req.body)
-    // if(error) return res.status(400).send(error.details[0].message)
+    const {error}=Validation(req.body)
+    if(error) return res.status(400).send(error.details[0].message)
 
     const card=new Card({
         Title:req.body.Title,
         Description:req.body.Description,
         Cover:req.body.Cover,
         Cover_Type:req.body.Type,
+        LiveUrl:req.body.LiveUrl,
+        SourceUrl:req.body.SourceUrl,
         Owner:req.body.Owner
     })
     
